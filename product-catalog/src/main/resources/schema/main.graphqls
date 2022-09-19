@@ -1,0 +1,8 @@
+type Mutation{
+    createProduct(input:CreateProductInput): String
+}
+
+input CreateProductInput{
+    sku: String
+    name: String
+}

@@ -2,7 +2,7 @@ version: '3.9'
 services:
   postgres:
     image: debezium/example-postgres
-    container_name: postgres
+    container_name: postgres2
     ports:
      - 5432:5432
     environment:
@@ -11,7 +11,7 @@ services:
      
   debezium-server:
     image: debezium/server
-    container_name: debezium-server
+    container_name: debezium-server2
     environment:
       GOOGLE_APPLICATION_CREDENTIALS: PATH_TO_CREDENTIALS
     ports:
@@ -23,7 +23,7 @@ services:
   pgadmin:
     image: dpage/pgadmin4
     hostname: pgadmin
-    container_name: pgadmin_dummy_container
+    container_name: pgadmin_dummy_container2
     ports:
       - 80:80
     environment:
