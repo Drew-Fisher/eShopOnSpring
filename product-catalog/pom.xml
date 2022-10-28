@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>io.productcatalog</groupId>
-	<artifactId>product-catalog</artifactId>
+	<artifactId>catalogItemDomain-catalog</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>product-catalog</name>
+	<name>catalogItemDomain-catalog</name>
 	<description>Product Catalog service for eShopOnSpring</description>
 	<properties>
 		<java.version>17</java.version>

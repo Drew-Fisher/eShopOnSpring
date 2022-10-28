@@ -1,10 +1,10 @@
-package io.productcatalog.productcatalog;
+package io.eshoponspring.catalog;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ProductCatalogApplicationTests {
+class CatalogItemCatalogApplicationTestsDomaine {
 
 	@Test
 	void contextLoads() {

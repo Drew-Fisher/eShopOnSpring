@@ -1,8 +1,7 @@
-package io.productcatalog.productcatalog.command.aggregates;
+package io.eshoponspring.catalog.command.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
@@ -10,21 +9,18 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity @Table(
+@Entity
+@Table(
         name = "product"
 )
-@AllArgsConstructor @NoArgsConstructor @Builder
-public class Product {
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class ProductEntity{
     @Id
     @Column(
-            name = "sku",
+            name = "item_sku",
             updatable = false
     )
     private String SKU;
-
-    @Column(
-            name = "product_name",
-            nullable = false
-    )
-    private String name;
 }

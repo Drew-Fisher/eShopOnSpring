@@ -1,8 +1,8 @@
 type Mutation{
-    createProduct(input:CreateProductInput): String
+    createCatalogItem(input:CreateCatalogItemInput): String
 }
 
-input CreateProductInput{
+input CreateCatalogItemInput{
     sku: String
     name: String
 }
