@@ -1,4 +1,4 @@
-package io.eshoponspring.catalog.command.aggregates.catalog_item;
+package io.eshoponspring.catalog.command.features.catalog_item.aggregate;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,18 +26,23 @@ public class CatalogItem {
     private UUID itemId;
 
     @Column(
-            name = "item_name",
+            name = "product_sku",
+            updatable =false,
             nullable = false
     )
-    public String name;
+    private String sku;
 
     @Column(
-            name = "item_description"
+            name = "state",
+            nullable = false
     )
-    public String description;
+    private String state;
 
     @Column(
-            name = "img_url"
+            name = "is_visible",
+            nullable = false
     )
-    public String imgUrl;
+    private boolean isVisible;
+
+    private CatalogItemInfo itemInfo;
 }

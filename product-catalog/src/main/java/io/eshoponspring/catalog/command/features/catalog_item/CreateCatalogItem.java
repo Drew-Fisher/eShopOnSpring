@@ -4,8 +4,9 @@ import com.acme.TaskBoard.generated.types.CreateProductInput;
 import com.netflix.graphql.dgs.DgsComponent;
 import com.netflix.graphql.dgs.DgsMutation;
 import com.netflix.graphql.dgs.InputArgument;
-import io.eshoponspring.catalog.command.aggregates.catalog_item.CatalogItemDomain;
-import io.eshoponspring.catalog.command.aggregates.CatalogItemRepository;
+import io.eshoponspring.catalog.command.features.catalog_item.aggregate.CatalogItem;
+import io.eshoponspring.catalog.command.features.catalog_item.aggregate.CatalogItemInfo;
+import io.eshoponspring.catalog.command.features.catalog_item.aggregate.CatalogItemRepository;
 import lombok.Builder;
 import lombok.ToString;
 import lombok.Value;
@@ -97,13 +98,19 @@ public class CreateCatalogItem {
         public String handel(Command command){
 
             //create the entity with input
-            CatalogItemDomain catalogItemDomain = CatalogItemDomain.builder()
-                    .sku(command.sku)
+            CatalogItemInfo catalogItemInfo = CatalogItemInfo.builder()
                     .name(command.name)
                     .build();
 
+            CatalogItem catalogItem = CatalogItem.builder()
+                    .sku(command.sku)
+                    .itemInfo(catalogItemInfo)
+                    .state("pre-launch")
+                    .isVisible(false)
+                    .build();
+
             //save entity
-            catalogItemRepository.save(catalogItemDomain);
+            catalogItemRepository.save(catalogItem);
 
             //create integration event
             IntegrationEvent integrationEvent = IntegrationEvent.builder()
